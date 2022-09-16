@@ -30,6 +30,47 @@
 			list-style-type: circle;
 			font-size: 20px;
 		}
+		/* Button used to open the chat form - fixed at the bottom of the page */
+#open-button {
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
     </style>
 </head>
 <body>
@@ -77,6 +118,27 @@
             </div>
           </div>
         </footer>
+        <button id="open-button" class="waves-effect waves-light btn-large" onclick="openForm()">Chat</button>
 
+<div class="chat-popup" id="myForm">
+  <form action="" class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="waves-effect waves-light btn-large">Send</button>
+    <button type="button" class="waves-effect waves-light btn-large" onclick="closeForm()">Close</button>
+  </form>
+</div>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
 </body>
 </html>
